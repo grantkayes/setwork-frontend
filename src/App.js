@@ -11,11 +11,13 @@ function App () {
     const url = runtimeEnv().REACT_APP_API_URL
     fetch(url)
       .then( res => res.json() )
-      .then( json => setData({ data: json }) )
+      .then( json => console.log(json))
+      // .then( res => res.json() )
+      // .then( json => setData({ data: json }) )
   }, [])
 
   return (
-    <p>Data recieved from API: { data }</p>
+    <p>Message: { data }</p>
   );
 }
 

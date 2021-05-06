@@ -1,30 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import fetch from 'isomorphic-fetch'
 import runtimeEnv from '@mars/heroku-js-runtime-env'
 
-class App extends Component {
+function App () {
+  const [ data, setData ] = useState();
 
-  constructor() {
-    super()
-    this.state = {
-      data: ""
-    }
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const url = runtimeEnv().REACT_APP_API_URL
     fetch(url)
       .then( res => res.json() )
-      .then( json => this.setState({ data: json }) )
-  }
+      .then( json => setData({ data: json }) )
+  }, [])
 
-  render() {
-    return (
-      <p>Data recieved from API: { this.state.data }</p>
-    );
-  }
+  return (
+    <p>Data recieved from API: { data }</p>
+  );
 }
 
 export default App;

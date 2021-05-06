@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Mix from './Mix';
 import fetch from 'isomorphic-fetch';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
@@ -13,7 +14,10 @@ function Home () {
   }, []);
 
   return (
-    <p>Message: { data }</p>
+    <div>
+        <p>Message: { data }</p>
+        <Mix/>
+    </div>
   );
 }
 

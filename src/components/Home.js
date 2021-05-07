@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Mix from './Mix';
+import './Home.css';
 import fetch from 'isomorphic-fetch';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
@@ -15,8 +16,20 @@ function Home () {
 
   return (
     <div>
-        <p>Message: { data }</p>
-        <Mix/>
+      <section class="navbar">
+        <div class="topnav">
+         <a class="brand">Setwork</a>
+         <a class="active" href="#home">Home</a>
+        </div>    
+      </section>
+      <section>
+        <form class="main">
+          <label for="mix_title">Mix title</label>
+          <input type="text" id="mix_title" name="mix_title"/>
+          <br></br>
+          <input type="submit" value="Submit"/>
+        </form>
+      </section>
     </div>
   );
 }

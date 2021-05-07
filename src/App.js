@@ -1,11 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import Home from './components/Home';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './components/Home'
 
-function App () {
+export default function App() {
   return (
-    <Home/>
+    <Router>
+      <div>
+        <nav className="topnav">
+          <a className="brand">Setwork </a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/users">Users</Link>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}

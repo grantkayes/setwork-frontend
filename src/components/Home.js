@@ -7,21 +7,15 @@ import runtimeEnv from '@mars/heroku-js-runtime-env';
 function Home () {
   const [ data, setData ] = useState();
 
-  useEffect(() => {
-    const url = runtimeEnv().REACT_APP_API_URL
-    fetch(url)
-      .then( res => res.json() )
-      .then( json => setData(json) );
-  }, []);
+  // useEffect(() => {
+  //   const url = runtimeEnv().REACT_APP_API_URL
+  //   fetch(url)
+  //     .then( res => res.json() )
+  //     .then( json => setData(json) );
+  // }, []);
 
   return (
     <div>
-      <section class="navbar">
-        <div class="topnav">
-         <a class="brand">Setwork</a>
-         <a class="active" href="#home">Home</a>
-        </div>    
-      </section>
       <section>
         <form class="main">
           <label for="mix_title">Mix title</label>

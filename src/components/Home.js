@@ -1,24 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Mix from './Mix';
 import './Home.css';
 import axios from 'axios';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 function Home () {
   const [ data, setData ] = useState();
-  const [ mixTitle, setMixTitle ] = useState({});
+  const [ mixTitle, setMixTitle ] = useState(null);
   const mixForm = useRef(null);
 
-  const handleClickEvent = (e) => {
+  const handleFormSubmit = async (e) => {
     const form = mixForm.current;
-    console.log(form['mix_title'].value);
-    e.preventDefault();
-  }
+    setMixTitle(form['mix_title'].value);
+    console.log(mixTitle)
 
-  const handleFormSubmit = (e) => {
-    const form = mixForm.current;
-    console.log(form['mix_title'].value);
-    e.preventDefault();
+    axios
+      .post('/api/home', {mixTitle})
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      })
   }
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function Home () {
           <label for="mix_title" style={{"font-weight": "bold", "margin-bottom": "2vh"}}>Mix title</label>
           <input type="text" id="mix_title" name="mix_title"/>
           <br></br>
-          <input type="button" value="Save" onClick={handleClickEvent}/>
+          <input type="button" value="Save" onClick={handleFormSubmit}/>
         </form>
         <h2>Message from API: {data}</h2>
       </section>

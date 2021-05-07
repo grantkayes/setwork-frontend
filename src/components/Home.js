@@ -15,12 +15,12 @@ function Home () {
     e.preventDefault();
  }
 
-  // useEffect(() => {
-  //   const url = runtimeEnv().REACT_APP_API_URL
-  //   fetch(url)
-  //     .then( res => res.json() )
-  //     .then( json => setData(json) );
-  // }, []);
+  useEffect(() => {
+    const url = runtimeEnv().REACT_APP_API_URL
+    fetch(url)
+      .then( res => res.json() )
+      .then( json => setData(json) );
+  }, []);
 
   return (
     <div>
@@ -31,6 +31,7 @@ function Home () {
           <br></br>
           <input type="button" value="Save" onClick={handleClickEvent}/>
         </form>
+        <h2>Message from API: {data}</h2>
       </section>
     </div>
   );

@@ -29,7 +29,7 @@ function Home () {
           <label for="mix_title" style={{"font-weight": "bold", "margin-bottom": "2vh"}}>Mix title</label>
           <input type="text" id="mix_title" name="mix_title"/>
           <br></br>
-          <button onClick={handleClickEvent}>Save</button>
+          <input type="button" value="Save" onClick={handleClickEvent}/>
         </form>
       </section>
     </div>

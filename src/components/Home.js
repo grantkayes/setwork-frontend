@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Mix from './Mix';
 import './Home.css';
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 function Home () {
@@ -13,13 +13,18 @@ function Home () {
     const form = mixForm.current;
     console.log(form['mix_title'].value);
     e.preventDefault();
- }
+  }
+
+  const handleFormSubmit = (e) => {
+    const form = mixForm.current;
+    console.log(form['mix_title'].value);
+    e.preventDefault();
+  }
 
   useEffect(() => {
     const url = runtimeEnv().REACT_APP_API_URL
-    fetch(url)
-      .then( res => res.json() )
-      .then( json => setData(json) );
+    axios.get(url)
+      .then( res => setData(res.data) )
   }, []);
 
   return (

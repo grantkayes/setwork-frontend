@@ -18,7 +18,7 @@ function Home () {
     <div>
       <section>
         <form class="main">
-          <label for="mix_title">Mix title</label>
+          <label for="mix_title" style={{"font-weight": "bold", "margin-bottom": "2vh"}}>Mix title</label>
           <input type="text" id="mix_title" name="mix_title"/>
           <br></br>
           <input type="submit" value="Submit"/>

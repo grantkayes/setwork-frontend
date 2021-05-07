@@ -12,7 +12,7 @@ export default function App() {
     <Router>
       <div>
         <nav className="topnav">
-          <a className="brand">Setwork </a>
+          <a className="brand" style={{"font-weight": "bold"}}>Setwork </a>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/users">Users</Link>

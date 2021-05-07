@@ -2,6 +2,10 @@ li {
   text-decoration: none;
 }
 
+input {
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
 }
